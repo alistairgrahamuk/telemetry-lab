@@ -73,7 +73,7 @@ N device goroutines ──▶ chan reading ──▶ W workers ──▶ store (
 - **`main`** is the reporter: events/sec every second, a fleet summary every window,
   and a final summary on shutdown.
 
-[`ARCHITECTURE.md`](ARCHITECTURE.md) has the full design: goroutine inventory, data
+[`ARCHITECTURE.md`](../docs/ARCHITECTURE.md) has the full design: goroutine inventory, data
 flow, every type and function, the concurrency model, the shutdown sequence and the
 known limitations.
 
@@ -102,7 +102,7 @@ service a 1 µs ticker, and Go's tickers drop missed ticks rather than queueing 
 ## Status and next steps
 
 Working, and deliberately small. Known limitations are listed in full in
-[`ARCHITECTURE.md`](ARCHITECTURE.md); the ones worth fixing first:
+[`ARCHITECTURE.md`](../docs/ARCHITECTURE.md); the ones worth fixing first:
 
 - **One global mutex** serialises every reading — shard the store by device ID.
 - **Ordering isn't guaranteed** across workers, so "consecutive readings" is
